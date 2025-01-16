@@ -1,17 +1,47 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Asynchronous HTTP Request</title>
+  <title>Asynchronous HTTP Request and Logging</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    #output {
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #f4f4f4;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-family: monospace;
+      white-space: pre-wrap;
+      overflow-x: auto;
+    }
+  </style>
 </head>
 <body>
   <h1>Asynchronous HTTP Request and Logging</h1>
   <button id="fetch-data">Fetch Data</button>
 
   <h2>Response:</h2>
-  <pre id="output" style="background-color: #f4f4f4; padding: 10px; border: 1px solid #ddd; overflow-x: auto;"></pre>
+  <pre id="output">Click the button to fetch data...</pre>
 
   <script>
     async function fetchData() {
@@ -36,3 +66,4 @@
   </script>
 </body>
 </html>
+
