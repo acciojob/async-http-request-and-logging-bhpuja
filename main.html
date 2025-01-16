@@ -1,16 +1,38 @@
+
 <!DOCTYPE html>
-
-<html>
-
+<html lang="en">
 <head>
-	<link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Asynchronous HTTP Request</title>
 </head>
-
 <body>
-	<!-- the entire body must be written by student -->
-    <script type="text/javascript" src="./script.js">
-</script>
+  <h1>Asynchronous HTTP Request and Logging</h1>
+  <button id="fetch-data">Fetch Data</button>
 
+  <h2>Response:</h2>
+  <pre id="output" style="background-color: #f4f4f4; padding: 10px; border: 1px solid #ddd; overflow-x: auto;"></pre>
+
+  <script>
+    async function fetchData() {
+      const apiUrl = 'https://jsonplaceholder.typicode.com/todos/1';
+      const output = document.getElementById('output');
+
+      try {
+        const response = await fetch(apiUrl);
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        output.textContent = JSON.stringify(data, null, 2); // Format response
+        console.log("API Response:", data);
+      } catch (error) {
+        output.textContent = `Error: ${error.message}`;
+        console.error("Error fetching data:", error);
+      }
+    }
+
+    document.getElementById('fetch-data').addEventListener('click', fetchData);
+  </script>
 </body>
-
 </html>
